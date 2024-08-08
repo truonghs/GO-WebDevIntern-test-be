@@ -1,38 +1,78 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# My G-Weather-Forecast (Back-End)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Welcome to G-Weather-Forecast. This is an application built using NestJS to handle requests from [G-Weather-Forecast](https://go-web-dev-intern-test.vercel.app/). Please follow the following introduction to get the project up and running!
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Table of Contents
 
-## Description
+- [System Requirements](#system-requirements)
+- [Installation](#installation)
+- [Settings](#settings)
+- [Run the Project](#run-the-project)
+- [Deployment](#deployment)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## System Requirements
+
+Make sure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) (v16 or higher)
+- [npm](https://www.npmjs.com/) (comes with Node.js) or [Yarn](https://classic.yarnpkg.com/)
+- [git](https://git-scm.com/)
 
 ## Installation
+1. Clone the repository:
 
-```bash
-$ npm install
+    ```bash
+    git clone https://github.com/truonghs/GO-WebDevIntern-test-be.git
+    ```
+
+2. Install the Nest CLI globally:
+
+  ```bash
+    npm install -g @nestjs/cli
+  ```
+    
+
+3. Navigate into the project directory:
+
+    ```bash
+    cd GO-WebDevIntern-test-be
+    ```
+
+4. Install the project dependencies:
+
+    Using npm:
+
+    ```bash
+    npm install
+    ```
+
+## Settings
+Add environment variables.\
+At the root of the project, create a .env file and add the following environment variables
+```
+JWT_SECRET=your_secret_key
+MONGO_URI=your_mongodb_uri
+EMAIL_USER=your_email
+EMAIL_PASS=your_email_pass
+CLIENT_URL=your_client_url
+APP_URL=your_server_url:port
+WEATHER_API_KEY=your_weatherapi_key
+WEATHER_API_URL=http://api.weatherapi.com/v1
 ```
 
-## Running the app
+- Replace your_secret_key with your actual secret key.
+- Replace your_mongodb_connection_uri with your actual MongoDB connection URL.
+- Replace your_email with your email address.
+- Replace your_email_pass with your Google app password from [google](https://myaccount.google.com/u/1/apppasswords).
+- Replace your_client_url with your actual client URL.
+- Replace your_server_url with your actual server URL.
+- Replace your_weatherapi_key with the API key from [WeatherAPI](https://www.weatherapi.com).
+
+## Run the Project
+
+To start the development server and run the project locally, use the following command:
+
+Using npm:
 
 ```bash
 # development
@@ -45,29 +85,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## Deployment
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+The server is deployed with Render: [G-Weather-Forecast-BE](https://go-webdevintern-test-be.onrender.com) 
+- Because of using the free service that render provides, the server may be stopped if there are no requests for a period of time. So please be patient if your first request to the server takes some time.
