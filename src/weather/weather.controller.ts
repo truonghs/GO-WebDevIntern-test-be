@@ -5,6 +5,10 @@ import { WeatherService } from './weather.service';
 export class WeatherController {
   constructor(private readonly weatherService: WeatherService) {}
 
+  @Get('current')
+  async getCurrent(@Query('city') city: string) {
+    return this.weatherService.getCurrent(city);
+  }
   @Get('forecast')
   async getForecast(@Query('city') city: string) {
     return this.weatherService.getForecast(city);

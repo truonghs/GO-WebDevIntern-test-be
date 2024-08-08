@@ -18,4 +18,13 @@ export class WeatherService {
       excludeExtraneousValues: true,
     });
   }
+  async getCurrent(city: string): Promise<WeatherDto> {
+    const url = `${this.apiUrl}/current.json?q=${city}&key=${this.apiKey}`;
+
+    const axiosResponse: AxiosResponse = await axios.get(url);
+
+    return plainToClass(WeatherDto, axiosResponse.data, {
+      excludeExtraneousValues: true,
+    });
+  }
 }
