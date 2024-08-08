@@ -4,8 +4,8 @@ import { plainToClass } from 'class-transformer';
 import { WeatherDto } from 'src/weather/weather.dto';
 @Injectable()
 export class WeatherService {
-  private readonly apiKey = 'c49ded753c934e4a89a134310240608';
-  private readonly apiUrl = 'http://api.weatherapi.com/v1';
+  private readonly apiKey = process.env.WEATHER_API_KEY;
+  private readonly apiUrl = process.env.WEATHER_API_URL;
 
   constructor() {}
 
