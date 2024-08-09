@@ -1,6 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import * as nodemailer from 'nodemailer';
-import { confirmationEmail, successEmail } from 'utils/emailTemplates';
+import {
+  confirmationEmail,
+  successEmail,
+  unsbscribeEmail,
+} from 'utils/emailTemplates';
 
 @Injectable()
 export class EmailService {
@@ -36,11 +40,21 @@ export class EmailService {
     };
     await this.transporter.sendMail(mailOptions);
   }
+  async sendUnsubscribeEmail(email: string, token: string) {
+    const unsubscribeUrl = `${process.env.CLIENT_URL}/unsubscribe?email=${email}&token=${token}`;
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: 'Please confirm your Unsubscription',
+      html: unsbscribeEmail(unsubscribeUrl),
+    };
+    await this.transporter.sendMail(mailOptions);
+  }
   async sendDailyWeatherEmail(email: string, html: string) {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: 'Please confirm your subscription',
+      subject: 'Your Daily Weather Service',
       html: html,
     };
     await this.transporter.sendMail(mailOptions);

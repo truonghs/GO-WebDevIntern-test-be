@@ -61,6 +61,15 @@ export class SubscriptionService {
     }
     await this.subscriptionModel.deleteOne({ email: unsubscribeDto.email });
   }
+  async unsubscribeRequest(email: string): Promise<void> {
+    const subscription = await this.subscriptionModel.findOne({
+      email: email,
+    });
+    await this.emailService.sendUnsubscribeEmail(
+      email,
+      subscription.confirmationToken,
+    );
+  }
   async getSubscribers(): Promise<Subscription[]> {
     const subscriptions = await this.subscriptionModel.find();
     return subscriptions;
